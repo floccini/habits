@@ -9,13 +9,7 @@ const prisma = new PrismaClient();
 app.register(cors); //allow frontend interfaces to acess data from the backend
 
 app.get("/", async () => {
-  const habits = await prisma.habit.findMany({
-    where: {
-      title: {
-        startsWith: "agua",
-      },
-    },
-  });
+  const habits = await prisma.habit.findMany();
 
   return habits;
 });
